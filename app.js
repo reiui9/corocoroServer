@@ -131,4 +131,5 @@ var cron = require('node-cron');
 // second minute hour day-of-month month day-of-week
 cron.schedule('* * * * *', function(){
   console.log('node-cron 실행 테스트');
+  child = exec("curl localhost:8080", function (error, stdout, stderr) {})
 });
