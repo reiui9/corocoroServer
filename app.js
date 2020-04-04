@@ -1,4 +1,6 @@
 // lsof -i -P | grep -i "listen" 
+// ssh pi@eubnara.gonetis.com
+// 비밀번호: duddls)@!^dbql
 
 var http = require('http');
 var fs = require('fs');
@@ -131,5 +133,7 @@ var cron = require('node-cron');
 // second minute hour day-of-month month day-of-week
 cron.schedule('* * * * *', function(){
   console.log('node-cron 실행 테스트');
+  var exec = require('child_process').exec,
+  child;
   child = exec("curl localhost:8080", function (error, stdout, stderr) {})
 });
