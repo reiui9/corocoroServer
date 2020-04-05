@@ -86,6 +86,7 @@ http.createServer(function (req, res) {
 
       db.collection('cc').doc(element.cc.toString()).set({
         cc: element.cc.toString(),
+        updatedAt: new Date(),
         nation: ret[element.cc.toString()] ? ret[element.cc.toString()] : 'Diamond Princess',
         number: i+1,
         confirmed: element.confirmed,
