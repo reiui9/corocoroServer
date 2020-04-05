@@ -83,27 +83,29 @@ http.createServer(function (req, res) {
       var element = obj.data[i];
       element.nation = ret[element.cc.toString()] ? upper(ret[element.cc.toString()]) : 'Diamond Princess';
       element.number = i+1;
-      // db.collection('dashboard').doc(element.cc.toString()).set({
-      //   cc: element.cc.toString(),
-      //   nation: ret[element.cc.toString()] ? ret[element.cc.toString()] : '',
-      //   number: i,
-      //   confirmed: element.confirmed,
-      //   death: element.death,
-      //   released: element.released,
-      //   candidate: element.candidate,
-      //   negative: element.negative,
-      //   tested: element.tested,
-      //   active: element.active,
-      //   confirmed_prev: element.confirmed_prev,
-      //   death_prev: element.death_prev,
-      //   candidate_prev: element.candidate_prev,
-      //   negative_prev: element.negative_prev,
-      //   released_prev: element.released_prev,
-      //   active_prev: element.active_prev,
-      //   population: element.population,
-      //   incidence: element.incidence,
-      //   flag: element.flag
-      // });
+
+      db.collection('cc').doc(element.cc.toString()).set({
+        cc: element.cc.toString(),
+        nation: ret[element.cc.toString()] ? ret[element.cc.toString()] : '',
+        number: i,
+        confirmed: element.confirmed,
+        death: element.death,
+        released: element.released,
+        candidate: element.candidate,
+        negative: element.negative,
+        tested: element.tested,
+        active: element.active,
+        confirmed_prev: element.confirmed_prev,
+        death_prev: element.death_prev,
+        candidate_prev: element.candidate_prev,
+        negative_prev: element.negative_prev,
+        released_prev: element.released_prev,
+        active_prev: element.active_prev,
+        population: element.population,
+        incidence: element.incidence,
+        flag: element.flag
+      });
+
       total.confirmed+=element.confirmed?element.confirmed:0;
       total.death+=element.death?element.death:0;
       total.released+=element.released?element.released:0;
