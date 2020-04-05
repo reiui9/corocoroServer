@@ -96,7 +96,7 @@ http.createServer(function (req, res) {
         negative: element.negative,
         tested: element.tested,
         active: element.active,
-        confirmed_prev: element.confirmed_prev,
+        confirmed_prev: element.confirmed_prev?element.confirmed_prev:0,
         death_prev: element.death_prev,
         candidate_prev: element.candidate_prev,
         negative_prev: element.negative_prev,
