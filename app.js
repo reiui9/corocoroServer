@@ -58,6 +58,7 @@ http.createServer(function (req, res) {
     // db add 부분  
     var total = {
       cc: 'total',
+      updatedAt: new Date(),
       nation: 'total',
       number: 0,
       confirmed: 0,
@@ -131,7 +132,7 @@ http.createServer(function (req, res) {
 
 var cron = require('node-cron');
 // second minute hour day-of-month month day-of-week
-cron.schedule('* * * * *', function(){
+cron.schedule('0 * * * *', function(){
   console.log('node-cron 실행 테스트');
   var exec = require('child_process').exec,
   child;
