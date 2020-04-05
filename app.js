@@ -122,6 +122,7 @@ http.createServer(function (req, res) {
     }
     // total.confirmed = numberWithCommas(total.confirmed)
     db.collection('dashboard').doc('total').set(total)
+    db.collection('dashboard').doc('total').set({arr: obj.data.slice(101, obj.data.length)})
 
     // 응답 부분
     res.writeHead(200, {'Content-Type': 'text/html'});
